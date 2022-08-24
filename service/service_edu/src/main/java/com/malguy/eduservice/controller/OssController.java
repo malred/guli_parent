@@ -3,6 +3,8 @@ package com.malguy.eduservice.controller;
 import com.malguy.commonutils.R;
 import com.malguy.commonutils.UploadUtils;
 import com.malguy.eduservice.service.EduTeacherService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,11 +24,13 @@ import java.io.InputStream;
 @RestController
 @RequestMapping("/eduoss/fileoss")
 @CrossOrigin
+@Api(description="文件上传接口")
 public class OssController {
     @Autowired
     private EduTeacherService teacherService;
     //上传头像的方法
     @PostMapping
+    @ApiOperation("上传文件,保存到本地,并返回磁盘映射路径")
     public R uploadOssFile(MultipartFile file) {
         //获取上传文件  MultipartFile
         //获取文件的内容
