@@ -119,7 +119,6 @@ public class EduTeacherController {
         List<EduTeacher> records = teacherPage.getRecords();//每页数据的集合
         return R.ok().data("total", total).data("rows", records);
     }
-
     //添加讲师
     @ApiOperation(value = "添加讲师方法")
     @CrossOrigin

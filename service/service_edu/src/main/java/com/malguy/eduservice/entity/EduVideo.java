@@ -74,8 +74,6 @@ public class EduVideo implements Serializable {
     private Date gmtCreate;
 
     @ApiModelProperty(value = "更新时间")
-    @TableField(fill= FieldFill.INSERT)
+    @TableField(fill= FieldFill.INSERT_UPDATE)
     private Date gmtModified;
-
-
 }

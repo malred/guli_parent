@@ -14,4 +14,6 @@ import com.malguy.eduservice.entity.vo.CourseInfoVo;
  */
 public interface EduCourseService extends IService<EduCourse> {
     String saveCourseInfo(CourseInfoVo info);
+    CourseInfoVo geCourseInfo(String courseId);
+    void updateCourseInfo(CourseInfoVo courseInfoVo);
 }

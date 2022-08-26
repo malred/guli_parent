@@ -11,6 +11,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
+    //特定异常处理--用得少
+    @ExceptionHandler(com.mysql.cj.jdbc.exceptions.MysqlDataTruncation.class)
+    @ResponseBody //返回数据
+    public R error1(ArithmeticException e){
+        e.printStackTrace();
+        log.error(e.getMessage());
+        return R.error().message("不能有重复姓名!!!");
+    }
+    //特定异常处理--用得少
+    @ExceptionHandler(java.sql.SQLIntegrityConstraintViolationException.class)
+    @ResponseBody //返回数据
+    public R error2(ArithmeticException e){
+        e.printStackTrace();
+        log.error(e.getMessage());
+        return R.error().message("不能有重复姓名!!!");
+    }
     //指定出现什么异常会进行处理
     @ExceptionHandler(Exception.class)
     @ResponseBody
@@ -18,13 +34,5 @@ public class GlobalExceptionHandler {
         e.printStackTrace();
         log.error(e.getMessage());
         return R.error().message("warning!!!全局异常处理");
-    }
-    //特定异常处理--用得少
-    @ExceptionHandler(java.sql.SQLIntegrityConstraintViolationException.class)
-    @ResponseBody //返回数据
-    public R error(ArithmeticException e){
-        e.printStackTrace();
-        log.error(e.getMessage());
-        return R.error().message("不能有重复姓名!!!");
     }
 }
