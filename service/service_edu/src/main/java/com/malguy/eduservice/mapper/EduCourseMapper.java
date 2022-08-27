@@ -3,6 +3,7 @@ package com.malguy.eduservice.mapper;
 import com.malguy.eduservice.entity.EduCourse;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.malguy.eduservice.entity.chapter.CoursePublishVo;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>

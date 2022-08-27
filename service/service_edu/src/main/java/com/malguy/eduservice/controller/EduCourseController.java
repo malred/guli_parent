@@ -2,6 +2,7 @@ package com.malguy.eduservice.controller;
 
 
 import com.malguy.commonutils.R;
+import com.malguy.eduservice.entity.chapter.CoursePublishVo;
 import com.malguy.eduservice.entity.vo.CourseInfoVo;
 import com.malguy.eduservice.service.EduCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,12 @@ public class EduCourseController {
     public R updateCourseInfo(@RequestBody CourseInfoVo courseInfoVo) {
         courseService.updateCourseInfo(courseInfoVo);
         return R.ok();
+    }
+    //根据课程id获取课程确认信息
+    @GetMapping("getPublishCourseInfo/{id}")
+    public R getPublishCourseInfo(@PathVariable String id){
+        CoursePublishVo coursePublish=courseService.publishCourseInfo(id);
+        return R.ok().data("publishCourse",coursePublish);
     }
 }
 
